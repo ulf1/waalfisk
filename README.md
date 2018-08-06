@@ -15,6 +15,23 @@ Second, remove all images
 docker rmi $(docker images -q)
 ```
 
+
+### Delete Docker.qcow2 
+This is a tricky topic because Docker did not fix this issue.
+There is a file `Docker.qcow2` that will grow forever and will mess up the server or development computer.
+The only whay to deal with this issue is
+
+1. Backup your Images and Container
+2. Delete all Images and Container
+3. Delete `Docker.qcow2`
+4. Start over again with your Backups.
+
+The deletion command is as follows.
+
+```
+find ~/Library/Containers/ -type f -name "Docker.qcow2" -exec rm -f {} \;
+```
+
 ### Delete `none` tagged Images
 Remove docker images that are tagged as `<none>`, i.e. these images are **not** not tagged.
 
