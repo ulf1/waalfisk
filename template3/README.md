@@ -33,4 +33,4 @@ Nothing to say about it.
 
 
 ### Links
-* [template1](https://github.com/ulf1/waalfisk/tree/master/template1)
+* [template3](https://github.com/ulf1/waalfisk/tree/master/template3)
