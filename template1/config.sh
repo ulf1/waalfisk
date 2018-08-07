@@ -32,13 +32,13 @@ for inarg in "$@"; do
 case "${inarg}" in
 build)
     echo $hline
-    echo "Building Image '${imagename}:${version}' now\n"
+    echo "Building Image '${imagename}:${version}' now"
     docker build -t "${imagename}:${version}" . -f "Dockerfile"
     echo "*** Image Build Completed ***"
     ;;
 run)
     echo $hline
-    echo "Instantiate container '${containername}' from the '${imagename}:${version}' image now\n"
+    echo "Instantiate container '${containername}' from the '${imagename}:${version}' image now"
     docker run -it \
         --name "${containername}" \
         -d "${imagename}:${version}"
@@ -50,9 +50,9 @@ start)
     ;;
 uninstall)
     echo $line
-    echo "Delete '${containername}' now\n"
+    echo "Delete '${containername}' now"
     docker rm ${containername}
-    echo "Delete '${imagename}:${version}' now\n"
+    echo "Delete '${imagename}:${version}' now"
     docker rmi ${imagename}:${version}
     echo "*** Container and Image Deletion Completed ***"
     ;;
