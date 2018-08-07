@@ -46,3 +46,35 @@ Remove orphan docker images that are not used for any container.
 docker rmi $(sudo docker images -f "dangling=true" -q)
 ```
 (Or use `docker image prune -a` instead)
+
+
+### Cheatsheet docker commands
+
+| command | description |
+|:-------:|:-----------:|
+| `docker images` | show existing images on the machine |
+| `docker ps` |  show running containers |
+| `docker ps -a` |  show all existing containers |
+| `docker commit -p MYCONTNAME MYIMAGNAME` | create a snapshot of a running container, i.e. Backup Your Container as Image! |
+| `docker run -it MYIMAGNAME` |  create new container from image and start into the cmdline |
+| `docker stop MYCONTNAME` | stop container remotely, from outside |
+| `docker start -i MYCONTNAME` | start existing container with commandline (`-i` flag) |
+| `docker attach MYCONTNAME` |  access cmdline of a running container |
+| `docker pause MYCONTNAME` | pause/idle running container |
+| `docker unpause MYCONTNAME` |  wake container up |
+| `docker save -o /my/location/backupfile.tar MYIMAGNAME` |  create backup archive of the image |
+| `docker load -i /my/location/backupfile.tar` |  recover from backup file |
+| `docker rm MYCONTNAME` | delete a specific container |
+| `docker rm $(docker ps -aq)` | delete all containers |
+| `docker rm $(docker ps -aq -f status=exited)` | delete all not running containers |
+| `docker tag MYIMAGNAME mydockerusername/myimagename:tagname` |  tag an image |
+| `docker push mydockerusername/myimagename:tagname` |  push image to dockerhub |
+| `docker run mydockerusername/myimagename` | pull and run |
+
+Links
+
+* https://linuxconfig.org/docker-container-backup-and-recovery
+* http://stackoverflow.com/questions/16840409/how-do-you-list-containers-in-docker-io
+* https://docs.docker.com/v1.10/engine/reference/commandline/cli/
+* https://docs.docker.com/engine/getstarted/step_six/
+ 
