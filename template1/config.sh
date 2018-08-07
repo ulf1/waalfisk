@@ -51,6 +51,7 @@ start)
 uninstall)
     echo $line
     echo "Delete '${containername}' now"
+    docker stop ${containername}
     docker rm ${containername}
     echo "Delete '${imagename}:${version}' now"
     docker rmi ${imagename}:${version}
