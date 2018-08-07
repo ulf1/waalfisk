@@ -46,6 +46,7 @@ run)
     ;;
 start)
     #login into CLI
+    docker restart ${containername}
     docker exec -it ${containername} bash
     ;;
 uninstall)
