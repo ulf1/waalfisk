@@ -1,4 +1,12 @@
 
+### Templates
+
+| No | Use Case |
+|:--:|:---------|
+| 1  | Start container, run bash script, stop container |
+| 2  | Try an OS: Start into CLI of the OS |
+| 3  | Run a script, mounts host directory |
+| 4  | Run a script, mounts host directory, has cron schedule |
 
 ### Delete all Container and Images (Tabula Rasa)
 First, stop and remove all container
