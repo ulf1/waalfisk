@@ -1,11 +1,11 @@
 
-### template1
-The `template1` docker example calls `script.sh` as `ENTRYPOINT`. 
+### template3
+The `template3` docker example calls `script.sh` as `ENTRYPOINT` 
+and have a mounting point to a host directory.
 
 ### Purpose
-* run simple bash scripts (`script.sh`)
-* does not store anything attached to the container (i.e. no file downloads, no attached volumes, etc.)
-* might process data on a remote machine (e.g. login into another database and run commands there)
+* run bash scripts (`script.sh`)
+* read, store, process data on a host directory via a mounting point.
 
 ### Commands
 Use the following commands to install, start, or uninstall the images or container.
