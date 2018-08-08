@@ -3,7 +3,6 @@ FROM python:3-slim-stretch
 LABEL maintainter="tinkercode@gmail.com"
 
 #cvxopt requirements
-#build-essential python-dev 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends libopenblas-dev libatlas-dev libblas-dev liblapack-dev \
  && update-alternatives --config libblas.so.3 \
