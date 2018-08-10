@@ -25,6 +25,7 @@ RUN pip install --upgrade pip \
  && pip install --no-cache-dir jupyter jupyter_nbextensions_configurator jupyter_contrib_nbextensions \
  && jupyter contrib nbextension install --user \
  && jupyter nbextensions_configurator enable --user \
+ && apt-get install nodejs-legacy npm && npm install -g ijavascript && ijsinstall \
  && rm -rf ~/.cache/pip
 #EXPOSE 8888 #Is informational only!
 
