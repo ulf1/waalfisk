@@ -40,12 +40,19 @@ The deletion command is as follows.
 find ~/Library/Containers/ -type f -name "Docker.qcow2" -exec rm -f {} \;
 ```
 
-### Delete `none` tagged Images
+### Delete `none` tagged Images and exited containers
 Remove docker images that are tagged as `<none>`, i.e. these images are **not** not tagged.
 
 ```
-docker rmi $(docker images | grep "^<none>" | awk '{ print $3 }')
+docker rmi -f $(docker images | grep "^<none>" | awk '{ print $3 }')
 ```
+
+Delete exited containers
+
+```
+docker rm $(docker ps -qa --no-trunc --filter "status=exited")
+```
+
 
 ### Delete unused/dangling Images
 Remove orphan docker images that are not used for any container. 
@@ -54,6 +61,7 @@ Remove orphan docker images that are not used for any container.
 docker rmi $(sudo docker images -f "dangling=true" -q)
 ```
 (Or use `docker image prune -a` instead)
+
 
 
 ### Cheatsheet docker commands
