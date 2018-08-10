@@ -2,7 +2,7 @@ FROM python:3-slim-stretch
 
 LABEL maintainter="tinkercode@gmail.com"
 
-#cvxopt requirements
+#Python - cvxopt requirements
 RUN apt-get update \
  && apt-get install -y --no-install-recommends libopenblas-dev libatlas-dev libblas-dev liblapack-dev \
  && update-alternatives --config libblas.so.3 \
@@ -10,7 +10,7 @@ RUN apt-get update \
  && apt-get install -y --no-install-recommends libsuitesparse-dev libdsdp-dev libfftw3-dev libglpk-dev libgsl-dev \
  && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-#install pypi packages
+#Python - install pypi packages
 RUN pip install --upgrade pip \
  && pip install --no-cache-dir numpy scipy pandas \
  && pip install --no-cache-dir matplotlib ggplot \
@@ -22,13 +22,15 @@ RUN pip install --upgrade pip \
  && pip install --no-cache-dir nose \
  && pip install --no-cache-dir oxyba \
  && pip install --no-cache-dir bpython \
- && pip install --no-cache-dir jupyter jupyter_nbextensions_configurator jupyter_contrib_nbextensions \
- && jupyter contrib nbextension install --user \
- && jupyter nbextensions_configurator enable --user \
- && apt-get install nodejs-legacy npm && npm install -g ijavascript && ijsinstall \
- && pip install bash_kernel && python -m bash_kernel.install \
  && rm -rf ~/.cache/pip
 #EXPOSE 8888 #Is informational only!
+
+#Python - Jupyter and its Extensions
+RUN pip install --no-cache-dir jupyter \
+ && pip install --no-cache-dir jupyter_nbextensions_configurator jupyter_contrib_nbextensions \
+ && jupyter contrib nbextension install --user \
+ && jupyter nbextensions_configurator enable --user \
+ && rm -rf ~/.cache/pip
 
 #create mount point
 RUN mkdir -p /data

@@ -1,9 +1,10 @@
 
-### dataanalysis
-The `dataanalysis` docker container.
+### dapy
+The `dapy` docker image.
+
 
 ### Purpose
-* Runs jupyter
+* Runs jupyter notebook for python only
 * Allows to enter into bpython
 
 ### Commands
