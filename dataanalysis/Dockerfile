@@ -26,6 +26,7 @@ RUN pip install --upgrade pip \
  && jupyter contrib nbextension install --user \
  && jupyter nbextensions_configurator enable --user \
  && apt-get install nodejs-legacy npm && npm install -g ijavascript && ijsinstall \
+ && pip install bash_kernel && python -m bash_kernel.install \
  && rm -rf ~/.cache/pip
 #EXPOSE 8888 #Is informational only!
 
