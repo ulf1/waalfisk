@@ -3,7 +3,10 @@ FROM ubuntu:xenial
 LABEL maintainter="tinkercode@gmail.com"
 
 #Requirements
-RUN apt-get update && apt-get -y install cron
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends apt-utils \
+ && apt-get install -y --no-install-recommends cron \
+ && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 #mount point
 RUN mkdir -p /data
